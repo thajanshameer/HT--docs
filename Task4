@@ -1,0 +1,60 @@
+function printOddNumbers(arr) {
+    return arr.filter(num => num % 2 !== 0);
+  }
+  
+  function toTitleCaps(arr) {
+    return arr.map(str => str.toLowerCase().replace(/\b\w/g, char => char.toUpperCase()));
+  }
+  
+  function sumOfNumbers(arr) {
+    return arr.reduce((sum, num) => sum + num, 0);
+  }
+  
+  function isPrime(num) {
+    if (num <= 1) return false;
+    for (let i = 2; i <= Math.sqrt(num); i++) {
+      if (num % i === 0) return false;
+    }
+    return true;
+  }
+  
+  function getPrimeNumbers(arr) {
+    return arr.filter(isPrime);
+  }
+  
+  function isPalindrome(str) {
+    const normalizedStr = str.toLowerCase().replace(/[^a-z0-9]/g, '');
+    return normalizedStr === normalizedStr.split('').reverse().join('');
+  }
+  
+  function getPalindromes(arr) {
+    return arr.filter(isPalindrome);
+  }
+  
+  function removeDuplicates(arr) {
+    return [...new Set(arr)];
+  }
+  
+  function rotateArray(arr, k) {
+    k = k % arr.length;
+    return arr.slice(-k).concat(arr.slice(0, -k));
+  }
+  
+  function testFunctions() {
+    const numbers = [1, 2, 3, 4, 5, 6, 7,];
+    const strings = ["hello world", "javaScript is fun", "openAI is amazing"];
+    const primeNumbers = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 13];
+    const palindromes = ["malayalam", "hello", "world"];
+    const duplicatesArray = [1, 2, 2, 3, 4, 4, 5, 5, 6, 7];
+  
+    console.log("Odd numbers:", printOddNumbers(numbers));
+    console.log("Title caps:", toTitleCaps(strings));
+    console.log("Sum of numbers:", sumOfNumbers(numbers));
+    console.log("Prime numbers:", getPrimeNumbers(primeNumbers));
+    console.log("Palindromes:", getPalindromes(palindromes));
+    console.log("Array without duplicates:", removeDuplicates(duplicatesArray));
+    console.log("Rotated array by 3 times:", rotateArray(numbers, 3));
+  }
+  
+  testFunctions();
+  
